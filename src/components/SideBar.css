@@ -33,6 +33,17 @@ li .delete-waypoint {
     cursor: pointer;
 }
 
+li .delete-waypoint:before {
+    display: block;
+    width: 21px;
+    height: 21px;
+    background-image: url('../media/trash-50.png');
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: contain;
+    content: '';
+}
+
 .download {
     font-weight: bold;
     width: 300px;

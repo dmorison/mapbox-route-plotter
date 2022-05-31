@@ -6,8 +6,8 @@ import SideBar from './SideBar';
 
 import './Map.css';
 
-import { routeData } from './data';
-import { token } from './token';
+import { routeData } from '../utils/data';
+import { token } from '../utils/token';
 
 mapboxgl.accessToken = token;
 

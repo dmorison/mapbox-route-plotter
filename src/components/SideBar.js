@@ -13,7 +13,7 @@ const SideBar = (props) => {
 			<ul className="waypoints">
 				{props.route.map((item, index) => {
 					return (
-						<li key={index}>Waypoint {index + 1}<span className="delete-waypoint" onClick={() => props.removePoint(index)}>delete</span></li>
+						<li key={index}>Waypoint {index + 1}<span className="delete-waypoint" onClick={() => props.removePoint(index)}></span></li>
 					);
 				})}
 			</ul>
