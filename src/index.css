@@ -12,10 +12,6 @@ code {
     monospace;
 }
 
-a {
-  color: inherit;
-}
-
 .mapboxgl-ctrl-bottom-left {
   display: none;
 }

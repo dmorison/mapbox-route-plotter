@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 
 import mapboxgl from 'mapbox-gl';
-
 import SideBar from './SideBar';
 
 import './Map.css';
@@ -59,16 +58,6 @@ const Map = () => {
 				},
 				'filter': ['==', '$type', 'LineString']
 			});
-			// map.addLayer({
-			// 	'id': 'points',
-			// 	'type': 'circle',
-			// 	'source': 'route',
-			// 	'paint': {
-			// 		'circle-radius': 6,
-			// 		'circle-color': '#383838'
-			// 	},
-			// 	'filter': ['==', '$type', 'Point']
-			// });
 
 			setMap(map);
 		});
@@ -87,23 +76,9 @@ const Map = () => {
 
 			drawRouteMarkers();
 
-			// let waypoint = {
-			// 	'type': 'Feature',
-			// 	'geometry': {
-			// 			'type': 'Point',
-			// 			'coordinates': []
-			// 	}
-			// };
-
-			// route.forEach((item, index) => {
-			// 	waypoint.geometry.coordinates = item;
-			// 	data.features.push(waypoint);
-			// });
-
-			console.log(data);
 			map.getSource('route').setData(data);
 		}
-	}, [route]);
+	}, [route]); // run each time the route is updated
 
 	const drawRouteMarkers = () => {
 		let markersArray = markers;
@@ -121,7 +96,6 @@ const Map = () => {
 
 	if (map) {
 		map.on('click', (e) => {
-			console.log(e.lngLat);
 			const coords = [e.lngLat.lng, e.lngLat.lat];
 
 			let points = [...route];
@@ -132,8 +106,6 @@ const Map = () => {
 	};
 
 	const removePoint = (p) => {
-		console.log(p);
-
 		let points = [...route];
 		points.splice(p, 1);
 
