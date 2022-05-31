@@ -1,3 +1,9 @@
+# Steps
+
+- Add hill shading layer to the map
+- Initialise GeoJson for route line
+- Update route with coordinates of each click on the map
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

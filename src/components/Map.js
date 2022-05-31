@@ -141,10 +141,10 @@ const Map = () => {
 	};
 
 	return (
-		<div>
+		<>
 			<SideBar route={route} removePoint={removePoint} />
 			<div ref={mapContainer} className="map-container" />
-		</div>
+		</>
 	);
 };
 
