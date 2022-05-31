@@ -1,0 +1,47 @@
+.sidebar {
+    width: 300px;
+    height: 372px;
+    background-color: rgba(56, 56, 56, 0.9);
+    color: #fff;
+    font-size: 16px;
+    padding: 14px;
+    font-family: monospace;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.sidebar-title {
+    font-size: 20px;
+    padding: 0px 0px 8px;
+    border-bottom: 2px solid #706e6e;
+}
+
+.waypoints {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    padding: 8px 0px;
+}
+
+li .delete-waypoint {
+    display: block;
+    float: right;
+    cursor: pointer;
+}
+
+.download {
+    font-weight: bold;
+    width: 300px;
+    padding: 8px;
+    color: #383838;
+    background-color: #d6ec59;
+    border: 0px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 14px;
+    cursor: pointer;
+}

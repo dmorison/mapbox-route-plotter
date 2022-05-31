@@ -13,5 +13,9 @@ code {
 }
 
 a {
-  color: aqua;
+  color: inherit;
+}
+
+.mapboxgl-ctrl-bottom-left {
+  display: none;
 }
