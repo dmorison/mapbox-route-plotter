@@ -15,9 +15,9 @@
 
 # Next steps
 
-- Rearrange waypoints using drag and drop to update route
 - Make the route points draggable and update the route
 - Measure the distance of the route and display this in the sidebar
+- Include a clear route button
 
 # Getting Started with Create React App
 

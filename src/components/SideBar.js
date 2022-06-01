@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import createGpx from 'gps-to-gpx';
 import { saveAs } from 'file-saver';
@@ -6,6 +6,9 @@ import { saveAs } from 'file-saver';
 import './SideBar.css';
 
 const SideBar = (props) => {
+	const [dragSrcEl, setDragSrcEl] = useState(null);
+	const [dragOnEl, setDragOnEl] = useState(null);
+	const [over, setOver] = useState(null);
 
 	const routeToGpx = async () => {
 		let waypoints = [];
@@ -26,6 +29,48 @@ const SideBar = (props) => {
 		saveAs(data, "myRoute.gpx");
 	};
 
+	const dragStart = (e) => {
+		setDragSrcEl(e.target);
+		e.dataTransfer.effectAllowed = 'move';
+		// e.dataTransfer.setData('text/html', e.target.innerHTML);
+	};
+
+	const dragOver = (e) => {
+		e.preventDefault();
+		console.log(e.target.id);
+		setOver(e.target.id);
+		e.dataTransfer.dropEffect = 'move';
+		return false;
+	};
+
+	const drop = (e) => {
+		if (dragSrcEl !== e.target) {
+			// dragSrcEl.innerHTML = e.target.innerHTML;
+			// e.target.innerHTML = e.dataTransfer.getData('text/html');
+			setDragOnEl(e.target);
+		}
+		return false;
+	}
+
+	const dragLeave = (e) => {
+		setOver(null);
+	};
+
+	const dragEnd = (e) => {
+		setOver(null);
+
+		const a = Number(e.target.id.split('-')[1]);
+		const b = Number(dragOnEl.id.split('-')[1]);
+
+		let routeArray = [...props.route];
+
+		const movedItem = routeArray[a];
+		routeArray.splice(a, 1);
+		routeArray.splice(b, 0, movedItem);
+
+		props.rearrangeRoute(routeArray);
+	};
+
 	return (
 		<div className="sidebar">
 			<div className="sidebar-title">
@@ -37,7 +82,20 @@ const SideBar = (props) => {
 				<ul className="waypoints">
 					{props.route.map((item, index) => {
 						return (
-							<li key={index}>Waypoint {index + 1}<span className="delete-waypoint" onClick={() => props.removePoint(index)}></span></li>
+							<li
+								key={index}
+								id={`waypoint-${index}`}
+								draggable={true}
+								onDragStart={dragStart}
+								onDragOver={dragOver}
+								onDrop={drop}
+								onDragLeave={dragLeave}
+								onDragEnd={dragEnd}
+								className={over === `waypoint-${index}` ? 'over' : ''}
+							>
+								Waypoint {index + 1}
+								<span className="delete-waypoint" onClick={() => props.removePoint(index)}></span>
+							</li>
 						);
 					})}
 				</ul>

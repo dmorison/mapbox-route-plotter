@@ -112,9 +112,13 @@ const Map = () => {
 		setRoute(points);
 	};
 
+	const rearrangeRoute = (newRoute) => {
+		setRoute(newRoute);
+	};
+
 	return (
 		<>
-			<SideBar route={route} removePoint={removePoint} />
+			<SideBar route={route} removePoint={removePoint} rearrangeRoute={rearrangeRoute} />
 			<div ref={mapContainer} className="map-container" />
 		</>
 	);
