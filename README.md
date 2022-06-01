@@ -3,6 +3,21 @@
 - Add hill shading layer to the map
 - Initialise GeoJson for route line
 - Update route with coordinates of each click on the map
+- Add points onto the map with order numbers
+- Update geojson route source to draw line
+- Create side bar component to show waypoints list
+- Add delete waypoint function that updates the route
+- Function to create GPX data out of route coordinates
+- Function to download GPX file
+- Style route points and line
+- Style map to full screen
+- Position side bar to bottom of screen on mobile
+
+# Next steps
+
+- Rearrange waypoints using drag and drop to update route
+- Make the route points draggable and update the route
+- Measure the distance of the route and display this in the sidebar
 
 # Getting Started with Create React App
 
