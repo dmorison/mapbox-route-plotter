@@ -32,12 +32,10 @@ const SideBar = (props) => {
 	const dragStart = (e) => {
 		setDragSrcEl(e.target);
 		e.dataTransfer.effectAllowed = 'move';
-		// e.dataTransfer.setData('text/html', e.target.innerHTML);
 	};
 
 	const dragOver = (e) => {
 		e.preventDefault();
-		console.log(e.target.id);
 		setOver(e.target.id);
 		e.dataTransfer.dropEffect = 'move';
 		return false;
@@ -45,8 +43,6 @@ const SideBar = (props) => {
 
 	const drop = (e) => {
 		if (dragSrcEl !== e.target) {
-			// dragSrcEl.innerHTML = e.target.innerHTML;
-			// e.target.innerHTML = e.dataTransfer.getData('text/html');
 			setDragOnEl(e.target);
 		}
 		return false;
@@ -63,7 +59,6 @@ const SideBar = (props) => {
 		const b = Number(dragOnEl.id.split('-')[1]);
 
 		let routeArray = [...props.route];
-
 		const movedItem = routeArray[a];
 		routeArray.splice(a, 1);
 		routeArray.splice(b, 0, movedItem);

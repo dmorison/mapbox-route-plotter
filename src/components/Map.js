@@ -118,7 +118,11 @@ const Map = () => {
 
 	return (
 		<>
-			<SideBar route={route} removePoint={removePoint} rearrangeRoute={rearrangeRoute} />
+			<SideBar
+				route={route}
+				removePoint={removePoint}
+				rearrangeRoute={rearrangeRoute}
+			/>
 			<div ref={mapContainer} className="map-container" />
 		</>
 	);
